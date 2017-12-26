@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <stdio.h>
 
 class GSLogger
 {
@@ -13,11 +14,11 @@ public:
 
 	GSLogger();
 	~GSLogger();
-	void openFile(const std::string &fileName);
+	bool openFile(const std::string &fileName);
 	void openMemory();
 	void openStdout();
 	void close();
-	void dumpLogsToFile(const std::string &fileName);
+	bool dumpLogsToFile(const std::string &fileName);
 	void log(VerboseLevel level, const std::string &msg);
 	void error(const std::string &msg);
 	void warning(const std::string &msg);
@@ -25,7 +26,8 @@ public:
 	void verboseInfo(const std::string &msg);
 	void debug(const std::string &msg);
 
-	VerboseLevel verboseLevel;
+	VerboseLevel currentVerboseLevel;
+	OutputMode outputMode;
 	bool logTime;
 	bool logDeltaTime;
 	int maxEntries = 1e6;
