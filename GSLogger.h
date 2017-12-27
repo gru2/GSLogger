@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <stdio.h>
+#include <iostream>
 
 class GSLogger
 {
@@ -25,6 +26,7 @@ public:
 	void info(const std::string &msg);
 	void verboseInfo(const std::string &msg);
 	void debug(const std::string &msg);
+	std::string format(const std::string &msg);
 
 	VerboseLevel currentVerboseLevel;
 	OutputMode outputMode;

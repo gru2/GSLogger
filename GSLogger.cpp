@@ -52,7 +52,7 @@ bool GSLogger::dumpLogsToFile(const std::string &fileName)
 	int n = data.size();
 	for (int i = 0; i < n; i++)
 	{
-		s = data[i];
+		const std::string &s = data[i];
 		fwrite(s.c_str(), 1, s.size() ,file);
 		fwrite("\n", 1, 1 ,file);
 	}
@@ -87,12 +87,12 @@ void GSLogger::log(GSLogger::VerboseLevel level, const std::string &msg)
 
 void GSLogger::error(const std::string &msg)
 {
-	log(VL_ERROR, msg);
+	log(VL_ERROR, "error:" + msg);
 }
 
 void GSLogger::warning(const std::string &msg)
 {
-	log(VL_WARNING, msg);
+	log(VL_WARNING, "warning:" + msg);
 }
 
 void GSLogger::info(const std::string &msg)
@@ -108,4 +108,9 @@ void GSLogger::verboseInfo(const std::string &msg)
 void GSLogger::debug(const std::string &msg)
 {
 	log(VL_DEBUG, msg);
+}
+
+std::string GSLogger::format(const std::string &msg)
+{
+	return msg;
 }
