@@ -4,6 +4,9 @@ GSLogger::GSLogger()
 {
 	currentVerboseLevel = VL_INFO;
 	outputMode = OM_STDOUT;
+	logTime = false;
+	logDeltaTime = false;
+	maxEntries = 1000000;
 	file = 0;
 }
 

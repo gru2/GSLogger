@@ -32,7 +32,7 @@ public:
 	OutputMode outputMode;
 	bool logTime;
 	bool logDeltaTime;
-	int maxEntries = 1e6;
+	int maxEntries;
 	std::vector<std::string> data;
 	FILE *file;
 };
